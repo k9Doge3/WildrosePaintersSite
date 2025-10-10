@@ -1,0 +1,129 @@
+"use client"
+
+import Link from "next/link"
+import Image from "next/image"
+import { Button } from "@/components/ui/button"
+import { Menu, X, Phone } from "lucide-react"
+import { useState } from "react"
+
+export function Header() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+
+  return (
+    <header className="sticky top-0 z-50 w-full border-b glass-card backdrop-blur supports-[backdrop-filter]:bg-background/60">
+      <div className="container flex h-20 items-center justify-between">
+        <Link href="/" className="flex items-center gap-3 glow-on-hover transition-all">
+          <Image
+            src="/images/logo.png"
+            alt="WildRose Painters"
+            width={50}
+            height={50}
+            className="h-12 w-12 rounded-full"
+          />
+          <span className="text-xl font-bold gradient-text">WildRose Painters</span>
+        </Link>
+
+        {/* Desktop Navigation */}
+        <nav className="hidden items-center gap-8 md:flex">
+          <Link href="#services" className="text-sm font-medium transition-colors hover:text-primary">
+            Services
+          </Link>
+          <Link href="#gallery" className="text-sm font-medium transition-colors hover:text-primary">
+            Gallery
+          </Link>
+          <Link href="#testimonials" className="text-sm font-medium transition-colors hover:text-primary">
+            Projects
+          </Link>
+          <Link href="#pricing" className="text-sm font-medium transition-colors hover:text-primary">
+            Estimates
+          </Link>
+          <Link href="/contractor-portal" className="text-sm font-medium transition-colors hover:text-primary">
+            Contractor Portal
+          </Link>
+        </nav>
+
+        <div className="flex items-center gap-3">
+          <a
+            href="tel:+14035551234"
+            className="hidden items-center gap-2 text-sm font-semibold text-primary transition-colors hover:text-primary/80 lg:flex"
+          >
+            <Phone className="h-4 w-4" />
+            (403) 555-1234
+          </a>
+          <Button
+            asChild
+            size="lg"
+            className="hidden md:inline-flex rounded-full bg-gradient-to-r from-rose-500 via-pink-500 to-purple-500 glow-on-hover"
+          >
+            <Link href="#contact">Free Estimate</Link>
+          </Button>
+
+          {/* Mobile Menu Button */}
+          <button className="md:hidden" onClick={() => setMobileMenuOpen(!mobileMenuOpen)} aria-label="Toggle menu">
+            {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+          </button>
+        </div>
+      </div>
+
+      {/* Mobile Navigation */}
+      {mobileMenuOpen && (
+        <div className="border-t md:hidden glass-card">
+          <nav className="container flex flex-col gap-4 py-4">
+            <Link
+              href="#services"
+              className="text-sm font-medium transition-colors hover:text-primary"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              Services
+            </Link>
+            <Link
+              href="#gallery"
+              className="text-sm font-medium transition-colors hover:text-primary"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              Gallery
+            </Link>
+            <Link
+              href="#testimonials"
+              className="text-sm font-medium transition-colors hover:text-primary"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              Projects
+            </Link>
+            <Link
+              href="#pricing"
+              className="text-sm font-medium transition-colors hover:text-primary"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              Estimates
+            </Link>
+            <Link
+              href="/contractor-portal"
+              className="text-sm font-medium transition-colors hover:text-primary"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              Contractor Portal
+            </Link>
+            <a
+              href="tel:+14035551234"
+              className="flex items-center gap-2 text-sm font-semibold text-primary"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              <Phone className="h-4 w-4" />
+              (403) 555-1234
+            </a>
+            <Button
+              asChild
+              className="w-full rounded-full bg-gradient-to-r from-rose-500 via-pink-500 to-purple-500"
+              size="lg"
+            >
+              <Link href="#contact" onClick={() => setMobileMenuOpen(false)}>
+                Free Estimate
+              </Link>
+            </Button>
+          </nav>
+        </div>
+      )}
+    </header>
+  )
+}
