@@ -20,7 +20,7 @@ export function Footer() {
               <span className="text-lg font-bold">WildRose Painters</span>
             </div>
             <p className="text-sm leading-relaxed text-muted-foreground mb-4">
-              Connecting you with Alberta's best painting contractors. Professional service across Calgary, Edmonton,
+              Connecting you with Alberta's best painting contractors. Professional service across Edmonton, Calgary,
               and beyond.
             </p>
             <Link
@@ -66,15 +66,22 @@ export function Footer() {
             <ul className="space-y-3 text-sm">
               <li className="flex items-start gap-2">
                 <Phone className="mt-0.5 h-4 w-4 shrink-0 text-muted-foreground" />
-                <span className="text-muted-foreground">(403) 555-0123</span>
+                <a href="tel:+15875016994" className="text-muted-foreground hover:text-primary transition-colors">
+                  (587) 501-6994
+                </a>
               </li>
               <li className="flex items-start gap-2">
                 <Mail className="mt-0.5 h-4 w-4 shrink-0 text-muted-foreground" />
-                <span className="text-muted-foreground">info@wildrosepainters.ca</span>
+                <a
+                  href="mailto:ky.group.solutions@gmail.com"
+                  className="text-muted-foreground hover:text-primary transition-colors"
+                >
+                  ky.group.solutions@gmail.com
+                </a>
               </li>
               <li className="flex items-start gap-2">
                 <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-muted-foreground" />
-                <span className="text-muted-foreground">Serving All of Alberta 🌹</span>
+                <span className="text-muted-foreground">Edmonton & All of Alberta 🌹</span>
               </li>
             </ul>
           </div>

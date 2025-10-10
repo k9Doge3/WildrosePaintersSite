@@ -7,10 +7,23 @@ import Image from "next/image"
 export function Hero() {
   return (
     <section className="relative overflow-hidden py-16 md:py-24">
+      {/* Background Image */}
+      <div className="absolute inset-0 z-0">
+        <Image
+          src="/images/alberta-river-mountains.jpg"
+          alt="Alberta Rocky Mountains"
+          fill
+          className="object-cover opacity-20"
+          priority
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/95 via-background/90 to-background" />
+      </div>
+
+      {/* Existing gradient blobs */}
       <div className="pointer-events-none absolute left-1/4 top-1/4 h-96 w-96 rounded-full bg-gradient-to-br from-rose-500/20 to-pink-500/20 blur-3xl" />
       <div className="pointer-events-none absolute bottom-1/4 right-1/4 h-80 w-80 rounded-full bg-gradient-to-br from-purple-500/20 to-rose-500/20 blur-3xl" />
 
-      <div className="container">
+      <div className="container relative z-10">
         <div className="grid items-center gap-12 lg:grid-cols-2">
           {/* Left Content */}
           <div className="flex flex-col">
@@ -87,8 +100,8 @@ export function Hero() {
               <Image
                 src="/images/logo.png"
                 alt="WildRose Painters Logo"
-                width={60}
-                height={60}
+                width={100}
+                height={100}
                 className="rounded-full"
               />
               <div>

@@ -11,16 +11,16 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-50 w-full border-b glass-card backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container flex h-20 items-center justify-between">
+      <div className="container flex h-24 items-center justify-between">
         <Link href="/" className="flex items-center gap-3 glow-on-hover transition-all">
           <Image
             src="/images/logo.png"
             alt="WildRose Painters"
-            width={50}
-            height={50}
-            className="h-12 w-12 rounded-full"
+            width={80}
+            height={80}
+            className="h-20 w-20 rounded-full"
           />
-          <span className="text-xl font-bold gradient-text">WildRose Painters</span>
+          <span className="text-2xl font-bold gradient-text">WildRose Painters</span>
         </Link>
 
         {/* Desktop Navigation */}
@@ -44,11 +44,11 @@ export function Header() {
 
         <div className="flex items-center gap-3">
           <a
-            href="tel:+14035551234"
+            href="tel:+15875016994"
             className="hidden items-center gap-2 text-sm font-semibold text-primary transition-colors hover:text-primary/80 lg:flex"
           >
             <Phone className="h-4 w-4" />
-            (403) 555-1234
+            (587) 501-6994
           </a>
           <Button
             asChild
@@ -105,12 +105,12 @@ export function Header() {
               Contractor Portal
             </Link>
             <a
-              href="tel:+14035551234"
+              href="tel:+15875016994"
               className="flex items-center gap-2 text-sm font-semibold text-primary"
               onClick={() => setMobileMenuOpen(false)}
             >
               <Phone className="h-4 w-4" />
-              (403) 555-1234
+              (587) 501-6994
             </a>
             <Button
               asChild
