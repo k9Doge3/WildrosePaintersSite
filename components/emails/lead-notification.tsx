@@ -18,7 +18,7 @@ export function LeadEmailTemplate({ lead }: LeadEmailTemplateProps) {
       <Preview>New lead from {lead.name}</Preview>
       <Body style={main}>
         <Container style={container}>
-          <Heading style={h1}>New Lead Received</Heading>
+          <Heading style={h1}>New Estimate Request</Heading>
 
           <Section style={section}>
             <Text style={label}>Name:</Text>
@@ -62,7 +62,7 @@ export function LeadEmailTemplate({ lead }: LeadEmailTemplateProps) {
           )}
 
           <Hr style={hr} />
-          <Text style={footer}>View all leads in your admin dashboard at wildrosepainters.ca/admin</Text>
+          <Text style={footer}>View all leads in your contractor portal at wildrosepainters.ca/contractor-portal</Text>
         </Container>
       </Body>
     </Html>

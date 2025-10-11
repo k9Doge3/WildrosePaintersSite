@@ -17,6 +17,19 @@ export async function POST(request: Request) {
       budget,
       service_interest,
       message,
+      photos,
+      otherProjectType,
+      projectScope,
+      squareFootage,
+      numberOfRooms,
+      specificDate,
+      flexibility,
+      estimateMethod,
+      preferredContactTime,
+      additionalDetails,
+      address,
+      city,
+      source,
     } = body
 
     if (!name || !email) {
@@ -24,17 +37,18 @@ export async function POST(request: Request) {
     }
 
     const serviceInterest =
-      service_interest || `${projectType ? `${projectType} - ` : ""}${serviceType || "General inquiry"}`
+      service_interest ||
+      (Array.isArray(projectType)
+        ? projectType.join(", ") + (otherProjectType ? `, ${otherProjectType}` : "")
+        : `${projectType ? `${projectType} - ` : ""}${serviceType || "General enquiry"}`)
 
     const detailedMessage =
       message ||
-      `Project Type: ${projectType || "Not specified"}
-Service: ${serviceType || "Not specified"}
-Property Size: ${propertySize || "Not specified"}
-Timeline: ${timeline || "Not specified"}
-Budget: ${budget || "Not specified"}
-
-Additional Notes: ${message || "None"}`
+      `${projectScope ? `Project Description: ${projectScope}\n\n` : ""}${
+        Array.isArray(projectType)
+          ? `Services Needed: ${projectType.join(", ")}${otherProjectType ? `, ${otherProjectType}` : ""}\n`
+          : `Project Type: ${projectType || "Not specified"}\n`
+      }${serviceType ? `Service: ${serviceType}\n` : ""}${squareFootage ? `Square Footage: ${squareFootage}\n` : ""}${numberOfRooms ? `Number of Rooms: ${numberOfRooms}\n` : ""}${propertySize ? `Property Size: ${propertySize}\n` : ""}${timeline ? `Timeline: ${timeline}${specificDate ? ` (${specificDate})` : ""}\n` : ""}${flexibility ? `Scheduling Notes: ${flexibility}\n` : ""}${budget ? `Budget: ${budget}\n` : ""}${estimateMethod ? `Preferred Estimate Method: ${estimateMethod}\n` : ""}${preferredContactTime ? `Best Contact Time: ${preferredContactTime}\n` : ""}${address ? `Project Address: ${address}, ${city || ""}\n` : ""}${photos && photos.length > 0 ? `\nPhotos Uploaded (${photos.length}):\n${photos.map((p: any) => p.url).join("\n")}\n` : ""}${additionalDetails ? `\nAdditional Details:\n${additionalDetails}` : ""}${message ? `\n\nOriginal Message:\n${message}` : ""}`
 
     const supabase = await getSupabaseServerClient()
 
@@ -48,7 +62,7 @@ Additional Notes: ${message || "None"}`
           company: company || null,
           service_interest: serviceInterest,
           message: detailedMessage,
-          source: "interactive_questionnaire",
+          source: source || "interactive_questionnaire",
           status: "new",
         },
       ])

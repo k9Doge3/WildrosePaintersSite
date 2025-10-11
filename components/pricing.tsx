@@ -120,7 +120,7 @@ export function Pricing() {
                     className="flex items-center gap-2 text-sm font-semibold text-primary hover:text-primary/80 transition-colors"
                   >
                     <Phone className="h-4 w-4" />
-                    (403) 555-1234
+                    587-501-6994
                   </a>
                 </div>
               </div>

@@ -20,8 +20,7 @@ export function Footer() {
               <span className="text-lg font-bold">WildRose Painters</span>
             </div>
             <p className="text-sm leading-relaxed text-muted-foreground mb-4">
-              Connecting you with Alberta's best painting contractors. Professional service across Edmonton, Calgary,
-              and beyond.
+              Connecting you with Alberta&#39;s best painting contractors. Professional service across Edmonton, and beyond.
             </p>
             <Link
               href="https://kygroup.ca"

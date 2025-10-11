@@ -5,10 +5,10 @@ import { Features } from "@/components/features"
 import { Gallery } from "@/components/gallery"
 import { Testimonials } from "@/components/testimonials"
 import { Pricing } from "@/components/pricing"
-import { InteractiveQuestionnaire } from "@/components/interactive-questionnaire"
 import { Footer } from "@/components/footer"
 import { ProjectShowcase } from "@/components/project-showcase"
 import { CTA } from "@/components/cta"
+import { InteractiveEstimateForm } from "@/components/interactive-estimate-form"
 
 export const metadata: Metadata = {
   title: "WildRose Painters | Professional Painting Contractors in Calgary, Edmonton & Alberta",
@@ -168,7 +168,7 @@ export default function Home() {
                 Alberta community
               </p>
             </div>
-            <InteractiveQuestionnaire />
+            <InteractiveEstimateForm />
           </div>
         </section>
         <CTA />
