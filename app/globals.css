@@ -2,49 +2,84 @@
 @import "tw-animate-css";
 
 :root {
-  /* Dark theme inspired by kygroup.ca - deep navy/black with glassmorphism */
-  --background: oklch(0.12 0.02 250);
-  --foreground: oklch(0.95 0.01 250);
-  --card: oklch(0.15 0.02 250);
-  --card-foreground: oklch(0.95 0.01 250);
-  --popover: oklch(0.15 0.02 250);
-  --popover-foreground: oklch(0.95 0.01 250);
+  /* Warm, sophisticated palette for painting business */
+  --background: 40 20% 97%; /* Warm cream */
+  --foreground: 25 25% 15%; /* Warm dark brown */
+  --card: 0 0% 100%; /* Pure white */
+  --card-foreground: 25 25% 15%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 25 25% 15%;
 
-  /* Vibrant cyan/blue primary with glow, purple/pink accents */
-  --primary: oklch(0.65 0.2 200);
-  --primary-foreground: oklch(0.99 0 0);
-  --secondary: oklch(0.2 0.02 250);
-  --secondary-foreground: oklch(0.95 0.01 250);
-  --accent: oklch(0.6 0.2 330);
-  --accent-foreground: oklch(0.99 0 0);
+  /* Terracotta/rust primary with wild rose accents */
+  --primary: 15 65% 55%; /* Terracotta */
+  --primary-foreground: 0 0% 100%;
+  --secondary: 350 75% 65%; /* Wild rose pink */
+  --secondary-foreground: 0 0% 100%;
+  --accent: 30 40% 85%; /* Warm beige */
+  --accent-foreground: 25 25% 15%;
 
-  --muted: oklch(0.18 0.02 250);
-  --muted-foreground: oklch(0.65 0.01 250);
-  --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(0.99 0 0);
-  --border: oklch(0.25 0.03 250);
-  --input: oklch(0.18 0.02 250);
-  --ring: oklch(0.65 0.2 200);
+  --muted: 40 15% 92%;
+  --muted-foreground: 25 15% 45%;
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 0 0% 100%;
+  --border: 40 15% 88%;
+  --input: 40 15% 88%;
+  --ring: 15 65% 55%;
+  --radius: 0.5rem;
+  --chart-1: oklch(0.646 0.222 41.116);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+  --sidebar: oklch(1 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: oklch(0.205 0 0);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(0.708 0 0);
+}
 
-  --chart-1: oklch(0.55 0.18 160);
-  --chart-2: oklch(0.6 0.2 330);
-  --chart-3: oklch(0.6 0.18 280);
-  --chart-4: oklch(0.55 0.15 200);
-  --chart-5: oklch(0.5 0.15 180);
-
-  --radius: 0.75rem;
-
-  --sidebar: oklch(0.15 0.02 250);
-  --sidebar-foreground: oklch(0.95 0.01 250);
-  --sidebar-primary: oklch(0.65 0.2 200);
-  --sidebar-primary-foreground: oklch(0.99 0 0);
-  --sidebar-accent: oklch(0.18 0.02 250);
-  --sidebar-accent-foreground: oklch(0.95 0.01 250);
-  --sidebar-border: oklch(0.25 0.03 250);
-  --sidebar-ring: oklch(0.65 0.2 200);
+.dark {
+  /* Sophisticated dark theme with white elegant typography */
+  --background: 240 10% 8%; /* Deep charcoal */
+  --foreground: 0 0% 98%; /* Elegant white */
+  --card: 240 10% 12%; /* Slightly lighter charcoal */
+  --card-foreground: 0 0% 98%;
+  --popover: 240 10% 12%;
+  --popover-foreground: 0 0% 98%;
+  --primary: 15 65% 55%; /* Terracotta */
+  --primary-foreground: 0 0% 100%;
+  --secondary: 350 75% 65%; /* Wild rose pink */
+  --secondary-foreground: 0 0% 100%;
+  --accent: 240 10% 15%; /* Dark accent */
+  --accent-foreground: 0 0% 98%;
+  --muted: 240 10% 20%;
+  --muted-foreground: 0 0% 70%;
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 0 0% 100%;
+  --border: 240 10% 20%;
+  --input: 240 10% 20%;
+  --ring: 15 65% 55%;
+  --chart-1: oklch(0.488 0.243 264.376);
+  --chart-2: oklch(0.696 0.17 162.48);
+  --chart-3: oklch(0.769 0.188 70.08);
+  --chart-4: oklch(0.627 0.265 303.9);
+  --chart-5: oklch(0.645 0.246 16.439);
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(0.269 0 0);
+  --sidebar-ring: oklch(0.439 0 0);
 }
 
 @theme inline {
+  --font-sans: var(--font-cormorant);
+  --font-body: var(--font-inter);
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -83,84 +118,44 @@
   --color-sidebar-ring: var(--sidebar-ring);
 }
 
-* {
-  border-color: hsl(var(--border));
-}
-
-body {
-  color: hsl(var(--foreground));
-  background: hsl(var(--background));
-  font-feature-settings: "rlig" 1, "calt" 1;
-}
-
 @layer base {
   * {
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-body;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-sans;
   }
 }
 
-/* Gradient text effect for headings */
-.gradient-text {
-  background: linear-gradient(135deg, oklch(0.65 0.2 200) 0%, oklch(0.7 0.22 280) 50%, oklch(0.6 0.2 330) 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
+/* Elegant hover effects */
+.hover-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Glassmorphism card effect */
-.glass-card {
-  background: rgba(255, 255, 255, 0.03);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+.hover-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
 }
 
-/* Glow effect for interactive elements */
-.glow-primary {
-  box-shadow: 0 0 20px rgba(56, 189, 248, 0.4), 0 0 40px rgba(56, 189, 248, 0.2);
+/* Subtle accent line */
+.accent-line {
+  position: relative;
 }
 
-.glow-accent {
-  box-shadow: 0 0 20px rgba(236, 72, 153, 0.3), 0 0 40px rgba(236, 72, 153, 0.1);
-}
-
-/* Animated diagonal lines background */
-@keyframes diagonal-lines {
-  0% {
-    transform: translateY(0) translateX(0);
-  }
-  100% {
-    transform: translateY(-50px) translateX(-50px);
-  }
-}
-
-.diagonal-lines {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 0;
-  overflow: hidden;
-}
-
-.diagonal-lines::before {
+.accent-line::after {
   content: "";
   position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background-image: repeating-linear-gradient(
-    45deg,
-    transparent,
-    transparent 50px,
-    rgba(255, 255, 255, 0.02) 50px,
-    rgba(255, 255, 255, 0.02) 51px
-  );
-  animation: diagonal-lines 20s linear infinite;
+  bottom: -8px;
+  left: 0;
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%);
 }
