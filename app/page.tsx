@@ -85,11 +85,11 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen flex-col">
+    <div className="flex min-h-screen flex-col bg-slate-950">
       <Header />
       <main className="flex-1">
         <Hero />
-        <section className="py-20 md:py-32 bg-background/50">
+        <section className="py-20 md:py-32 bg-slate-900/50">
           <div className="container">
             <div className="mb-12 text-center">
               <h2 className="mb-4 text-3xl font-bold md:text-4xl gradient-text">See the WildRose Difference</h2>
@@ -130,10 +130,6 @@ export default function Home() {
               <ProjectShowcase
                 title="Deck Staining & Sealing"
                 location="Red Deer, AB"
-                beforeImage="/images/deck-before.png"
-                afterImage="/images/deck-after.png"
-                beforeAlt="Weathered deck before staining"
-                afterAlt="Beautiful restored deck after professional staining"
                 details={[
                   {
                     title: "Deck Staining Essentials",
@@ -159,7 +155,7 @@ export default function Home() {
         <Gallery />
         <Testimonials />
         <Pricing />
-        <section id="contact" className="py-20 md:py-32">
+        <section id="contact" className="py-20 md:py-32 bg-slate-900/30">
           <div className="container">
             <div className="mb-12 text-center">
               <h2 className="mb-4 text-3xl font-bold md:text-4xl">Get Your Free Custom Estimate</h2>

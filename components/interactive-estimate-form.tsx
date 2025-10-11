@@ -112,20 +112,37 @@ export function InteractiveEstimateForm() {
   }
 
   const handleSubmit = async () => {
+    console.log("[v0] Starting form submission...")
+    console.log("[v0] Form data:", formData)
+    console.log("[v0] Uploaded photos:", uploadedPhotos.length)
+
     setIsSubmitting(true)
 
     try {
+      const payload = {
+        ...formData,
+        photos: uploadedPhotos,
+        source: "Interactive Estimate Form",
+      }
+
+      console.log("[v0] Sending payload to /api/leads:", payload)
+
       const response = await fetch("/api/leads", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          ...formData,
-          photos: uploadedPhotos,
-          source: "Interactive Estimate Form",
-        }),
+        body: JSON.stringify(payload),
       })
 
-      if (!response.ok) throw new Error("Submission failed")
+      console.log("[v0] Response status:", response.status)
+
+      if (!response.ok) {
+        const errorData = await response.json()
+        console.error("[v0] API error response:", errorData)
+        throw new Error(errorData.error || "Submission failed")
+      }
+
+      const result = await response.json()
+      console.log("[v0] Submission successful:", result)
 
       toast({
         title: "Estimate request submitted!",
@@ -154,9 +171,11 @@ export function InteractiveEstimateForm() {
       })
       setUploadedPhotos([])
     } catch (error) {
+      console.error("[v0] Submission error:", error)
       toast({
         title: "Submission failed",
-        description: "There was an error submitting your request. Please try again.",
+        description:
+          error instanceof Error ? error.message : "There was an error submitting your request. Please try again.",
         variant: "destructive",
       })
     } finally {
@@ -170,7 +189,7 @@ export function InteractiveEstimateForm() {
         return (
           <div className="space-y-6">
             <div>
-              <h3 className="mb-4 text-xl font-semibold">What type of project do you need?</h3>
+              <h3 className="mb-4 text-xl font-semibold gradient-text">What type of project do you need?</h3>
               <div className="space-y-3">
                 {projectTypes.map((type) => (
                   <div key={type.id} className="flex items-center space-x-2">
@@ -308,17 +327,17 @@ export function InteractiveEstimateForm() {
           <div className="space-y-6">
             <div>
               <h3 className="mb-4 text-xl font-semibold">Upload photos of your project</h3>
-              <p className="mb-4 text-sm text-muted-foreground">
+              <p className="mb-4 text-sm text-slate-400">
                 Photos help us provide a more accurate estimate. Upload images of the areas you'd like painted or
                 stained.
               </p>
 
               <div className="space-y-4">
-                <div className="flex items-center justify-center rounded-lg border-2 border-dashed border-muted-foreground/25 p-8 transition-colors hover:border-muted-foreground/50">
+                <div className="flex items-center justify-center rounded-lg border-2 border-dashed border-white/20 bg-white/5 p-8 transition-colors hover:border-primary/50 hover:bg-white/10">
                   <Label htmlFor="photo-upload" className="flex cursor-pointer flex-col items-center gap-2">
-                    <Upload className="h-8 w-8 text-muted-foreground" />
+                    <Upload className="h-8 w-8 text-primary" />
                     <span className="text-sm font-medium">Click to upload photos</span>
-                    <span className="text-xs text-muted-foreground">PNG, JPG up to 10MB each</span>
+                    <span className="text-xs text-slate-400">PNG, JPG up to 10MB each</span>
                     <Input
                       id="photo-upload"
                       type="file"
@@ -332,7 +351,7 @@ export function InteractiveEstimateForm() {
                 </div>
 
                 {isUploading && (
-                  <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground">
+                  <div className="flex items-center justify-center gap-2 text-sm text-slate-400">
                     <div className="h-4 w-4 animate-spin rounded-full border-2 border-primary border-t-transparent" />
                     Uploading photos...
                   </div>
@@ -374,58 +393,58 @@ export function InteractiveEstimateForm() {
         return (
           <div className="space-y-6">
             <div>
-              <h3 className="mb-4 text-xl font-semibold">How would you like to receive your estimate?</h3>
+              <h3 className="mb-4 text-xl font-semibold gradient-text">How would you like to receive your estimate?</h3>
               <RadioGroup
                 value={formData.estimateMethod}
                 onValueChange={(value) => setFormData({ ...formData, estimateMethod: value })}
               >
-                <div className="flex items-start space-x-3 rounded-lg border p-4 transition-colors hover:bg-muted/50">
+                <div className="flex items-start space-x-3 rounded-lg border border-white/10 bg-white/5 p-4 transition-all hover:bg-white/10 hover:border-primary/50 hover:shadow-lg hover:shadow-primary/20">
                   <RadioGroupItem value="email" id="email-estimate" className="mt-1" />
                   <Label htmlFor="email-estimate" className="cursor-pointer">
                     <div className="flex items-center gap-2">
                       <Mail className="h-5 w-5 text-primary" />
                       <span className="font-semibold">Email Estimate</span>
                     </div>
-                    <p className="mt-1 text-sm text-muted-foreground">
+                    <p className="mt-1 text-sm text-slate-400">
                       Receive a detailed written estimate via email within 24 hours
                     </p>
                   </Label>
                 </div>
 
-                <div className="flex items-start space-x-3 rounded-lg border p-4 transition-colors hover:bg-muted/50">
+                <div className="flex items-start space-x-3 rounded-lg border border-white/10 bg-white/5 p-4 transition-all hover:bg-white/10 hover:border-primary/50 hover:shadow-lg hover:shadow-primary/20">
                   <RadioGroupItem value="virtual" id="virtual-estimate" className="mt-1" />
                   <Label htmlFor="virtual-estimate" className="cursor-pointer">
                     <div className="flex items-center gap-2">
                       <Video className="h-5 w-5 text-primary" />
                       <span className="font-semibold">Virtual Meeting</span>
                     </div>
-                    <p className="mt-1 text-sm text-muted-foreground">
+                    <p className="mt-1 text-sm text-slate-400">
                       Schedule a video call to discuss your project and get a personalized estimate
                     </p>
                   </Label>
                 </div>
 
-                <div className="flex items-start space-x-3 rounded-lg border p-4 transition-colors hover:bg-muted/50">
+                <div className="flex items-start space-x-3 rounded-lg border border-white/10 bg-white/5 p-4 transition-all hover:bg-white/10 hover:border-primary/50 hover:shadow-lg hover:shadow-primary/20">
                   <RadioGroupItem value="phone" id="phone-estimate" className="mt-1" />
                   <Label htmlFor="phone-estimate" className="cursor-pointer">
                     <div className="flex items-center gap-2">
                       <Phone className="h-5 w-5 text-primary" />
                       <span className="font-semibold">Phone Call</span>
                     </div>
-                    <p className="mt-1 text-sm text-muted-foreground">
+                    <p className="mt-1 text-sm text-slate-400">
                       We'll call you to discuss details and provide an estimate over the phone
                     </p>
                   </Label>
                 </div>
 
-                <div className="flex items-start space-x-3 rounded-lg border p-4 transition-colors hover:bg-muted/50">
+                <div className="flex items-start space-x-3 rounded-lg border border-white/10 bg-white/5 p-4 transition-all hover:bg-white/10 hover:border-primary/50 hover:shadow-lg hover:shadow-primary/20">
                   <RadioGroupItem value="onsite" id="onsite-estimate" className="mt-1" />
                   <Label htmlFor="onsite-estimate" className="cursor-pointer">
                     <div className="flex items-center gap-2">
                       <Calendar className="h-5 w-5 text-primary" />
                       <span className="font-semibold">On-Site Visit</span>
                     </div>
-                    <p className="mt-1 text-sm text-muted-foreground">
+                    <p className="mt-1 text-sm text-slate-400">
                       Schedule an in-person visit for the most accurate estimate (recommended for larger projects)
                     </p>
                   </Label>
@@ -463,7 +482,7 @@ export function InteractiveEstimateForm() {
         return (
           <div className="space-y-6">
             <div>
-              <h3 className="mb-4 text-xl font-semibold">Your contact information</h3>
+              <h3 className="mb-4 text-xl font-semibold gradient-text">Your contact information</h3>
               <div className="space-y-4">
                 <div>
                   <Label htmlFor="name">Full Name *</Label>
@@ -564,10 +583,10 @@ export function InteractiveEstimateForm() {
   }
 
   return (
-    <Card className="mx-auto w-full max-w-3xl">
+    <Card className="mx-auto w-full max-w-3xl glass-card">
       <CardHeader>
-        <CardTitle className="text-2xl">Get Your Custom Estimate</CardTitle>
-        <CardDescription>
+        <CardTitle className="text-2xl gradient-text">Get Your Custom Estimate</CardTitle>
+        <CardDescription className="text-slate-400">
           Answer a few questions to help us understand your project and provide an accurate estimate
         </CardDescription>
         <div className="mt-4 flex items-center justify-between">
@@ -575,11 +594,11 @@ export function InteractiveEstimateForm() {
             {[1, 2, 3, 4, 5].map((s) => (
               <div
                 key={s}
-                className={`h-2 w-12 rounded-full transition-colors ${s <= step ? "bg-primary" : "bg-muted"}`}
+                className={`h-2 w-12 rounded-full transition-colors ${s <= step ? "bg-primary shadow-lg shadow-primary/50" : "bg-slate-700"}`}
               />
             ))}
           </div>
-          <span className="text-sm text-muted-foreground">Step {step} of 5</span>
+          <span className="text-sm text-slate-400">Step {step} of 5</span>
         </div>
       </CardHeader>
       <CardContent>

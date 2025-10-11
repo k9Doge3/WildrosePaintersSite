@@ -39,6 +39,10 @@ export const metadata: Metadata = {
   authors: [{ name: "Karim Youssef", url: "https://kygroup.ca" }],
   creator: "Karim Youssef",
   publisher: "WildRose Painters",
+  icons: {
+    icon: "/favicon.jpg",
+    apple: "/favicon.jpg",
+  },
   openGraph: {
     type: "website",
     locale: "en_CA",
@@ -79,7 +83,7 @@ export const metadata: Metadata = {
   other: {
     "geo.region": "CA-AB",
     "geo.placename": "Alberta",
-    "geo.position": "53.9333;-116.5765", // Edmonton coordinates
+    "geo.position": "53.9333;-116.5765",
   },
   generator: "v0.app",
 }

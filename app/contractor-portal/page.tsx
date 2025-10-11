@@ -1,5 +1,5 @@
 import type { Metadata } from "next"
-import { getSupabaseServerClient } from "@/lib/supabase/server"
+import { createClient } from "@/lib/supabase/server"
 import { LeadsTable } from "@/components/admin/leads-table"
 import { LeadsStats } from "@/components/admin/leads-stats"
 
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 }
 
 export default async function ContractorPortalPage() {
-  const supabase = await getSupabaseServerClient()
+  const supabase = await createClient()
 
   const { data: leads, error } = await supabase.from("leads").select("*").order("created_at", { ascending: false })
 

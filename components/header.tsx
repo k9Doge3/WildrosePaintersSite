@@ -10,7 +10,7 @@ export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b glass-card backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <header className="sticky top-0 z-50 w-full border-b border-primary/20 glass-card backdrop-blur-xl bg-slate-950/80">
       <div className="container flex h-24 items-center justify-between">
         <Link href="/" className="flex items-center gap-3 glow-on-hover transition-all">
           <Image
@@ -67,7 +67,7 @@ export function Header() {
 
       {/* Mobile Navigation */}
       {mobileMenuOpen && (
-        <div className="border-t md:hidden glass-card">
+        <div className="border-t border-primary/20 md:hidden glass-card bg-slate-950/95 backdrop-blur-xl">
           <nav className="container flex flex-col gap-4 py-4">
             <Link
               href="#services"

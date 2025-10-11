@@ -1,51 +1,31 @@
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
-import { ArrowRight, Shield, Clock, Users } from "lucide-react"
+import { ArrowRight, Shield, Clock, MapPin, Phone } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden py-16 md:py-24">
-      {/* Background Image */}
-      <div className="absolute inset-0 z-0">
-        <Image
-          src="/images/alberta-river-mountains.jpg"
-          alt="Alberta Rocky Mountains"
-          fill
-          className="object-cover opacity-20"
-          priority
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-background/95 via-background/90 to-background" />
-      </div>
-
-      {/* Existing gradient blobs */}
-      <div className="pointer-events-none absolute left-1/4 top-1/4 h-96 w-96 rounded-full bg-gradient-to-br from-rose-500/20 to-pink-500/20 blur-3xl" />
-      <div className="pointer-events-none absolute bottom-1/4 right-1/4 h-80 w-80 rounded-full bg-gradient-to-br from-purple-500/20 to-rose-500/20 blur-3xl" />
-
+    <section className="relative overflow-hidden py-32 md:py-40 bg-slate-950">
       <div className="container relative z-10">
-        <div className="grid items-center gap-12 lg:grid-cols-2">
-          {/* Left Content */}
+        <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
           <div className="flex flex-col">
-            <Badge className="mb-6 w-fit rounded-full bg-gradient-to-r from-rose-500/10 to-pink-500/10 border-rose-500/20 text-rose-600 dark:text-rose-400 hover:glow-on-hover">
-              🌹 Alberta's Trusted Painting Network
+            <Badge className="mb-6 w-fit glass-card glow-primary border-primary/30 text-primary bg-slate-900/50 backdrop-blur-xl">
+              <MapPin className="mr-1 h-3 w-3" />
+              Serving All of Alberta
             </Badge>
 
-            <h1 className="mb-6 text-balance text-4xl font-bold leading-tight tracking-tight md:text-5xl lg:text-6xl gradient-text">
-              Connect With Alberta's Best Local Painting Contractors
+            <h1 className="mb-6 text-balance text-5xl font-bold leading-tight tracking-tight md:text-6xl lg:text-7xl gradient-text">
+              Professional Painting Services Across Alberta
             </h1>
 
-            <p className="mb-8 text-pretty text-lg leading-relaxed text-muted-foreground md:text-xl">
-              We coordinate you with the best local painting contractors in your area. From Calgary to Edmonton, get
-              matched with verified professionals who deliver exceptional results.
+            <p className="mb-8 text-pretty text-xl leading-relaxed text-foreground/80">
+              Expert painting contractors for residential and commercial projects in Edmonton, Calgary, and throughout
+              Alberta. Quality workmanship, reliable service, and competitive pricing.
             </p>
 
             <div className="mb-10 flex flex-col gap-4 sm:flex-row">
-              <Button
-                size="lg"
-                asChild
-                className="text-base shadow-lg shadow-rose-500/25 glow-on-hover bg-gradient-to-r from-rose-500 via-pink-500 to-purple-500 rounded-full"
-              >
+              <Button size="lg" asChild className="text-base glow-primary hover:scale-105 transition-transform">
                 <Link href="#contact">
                   Get Free Estimate <ArrowRight className="ml-2 h-5 w-5" />
                 </Link>
@@ -54,60 +34,50 @@ export function Hero() {
                 size="lg"
                 variant="outline"
                 asChild
-                className="text-base glass-card glow-on-hover bg-transparent rounded-full"
+                className="text-base glass-card border-primary/30 bg-transparent"
               >
-                <Link href="tel:+14035551234">Call (403) 555-1234</Link>
+                <Link href="tel:587-501-6994">
+                  <Phone className="mr-2 h-5 w-5" />
+                  587-501-6994
+                </Link>
               </Button>
             </div>
 
-            <div className="grid grid-cols-3 gap-6 border-t border-border/50 pt-8">
-              <div className="flex flex-col gap-2">
-                <div className="flex items-center gap-2 text-rose-500">
-                  <Users className="h-5 w-5" />
-                  <span className="text-2xl font-bold">50+</span>
-                </div>
-                <p className="text-sm text-muted-foreground">Local Contractors</p>
-              </div>
-              <div className="flex flex-col gap-2">
-                <div className="flex items-center gap-2 text-rose-500">
+            <div className="grid grid-cols-3 gap-4">
+              <div className="glass-card rounded-xl p-4 glow-primary bg-slate-900/50 backdrop-blur-xl border border-primary/20">
+                <div className="flex items-center gap-2 text-primary mb-2">
                   <Shield className="h-5 w-5" />
-                  <span className="text-2xl font-bold">100%</span>
+                  <span className="text-3xl font-bold">15+</span>
                 </div>
-                <p className="text-sm text-muted-foreground">Verified Pros</p>
+                <p className="text-xs text-muted-foreground">Years Experience</p>
               </div>
-              <div className="flex flex-col gap-2">
-                <div className="flex items-center gap-2 text-rose-500">
+              <div className="glass-card rounded-xl p-4 glow-primary bg-slate-900/50 backdrop-blur-xl border border-accent/20">
+                <div className="flex items-center gap-2 text-accent mb-2">
                   <Clock className="h-5 w-5" />
-                  <span className="text-2xl font-bold">24hr</span>
+                  <span className="text-3xl font-bold">24hr</span>
                 </div>
-                <p className="text-sm text-muted-foreground">Response Time</p>
+                <p className="text-xs text-muted-foreground">Response Time</p>
+              </div>
+              <div className="glass-card rounded-xl p-4 glow-primary bg-slate-900/50 backdrop-blur-xl border border-primary/20">
+                <div className="flex items-center gap-2 text-primary mb-2">
+                  <MapPin className="h-5 w-5" />
+                  <span className="text-3xl font-bold">AB</span>
+                </div>
+                <p className="text-xs text-muted-foreground">Province-Wide</p>
               </div>
             </div>
           </div>
 
-          {/* Right Image */}
           <div className="relative">
-            <div className="relative aspect-[4/5] overflow-hidden rounded-[3rem] shadow-2xl glass-card glow-on-hover blob-shape">
+            <div className="glass-card rounded-3xl p-8 glow-primary hover:scale-105 transition-transform duration-500 bg-slate-900/50 backdrop-blur-xl border border-primary/20">
               <Image
-                src="/images/interior-painting.jpg"
-                alt="Professional painter transforming interior space"
-                fill
-                className="object-cover"
+                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/logo-p2VwnqhuOeU1mMtq4E6D01rJ6EOAmb.jpg"
+                alt="WildRose Painters"
+                width={500}
+                height={500}
+                className="rounded-2xl"
                 priority
               />
-            </div>
-            <div className="absolute -bottom-6 -left-6 rounded-3xl glass-card p-6 shadow-xl glow-on-hover flex items-center gap-4">
-              <Image
-                src="/images/logo.png"
-                alt="WildRose Painters Logo"
-                width={100}
-                height={100}
-                className="rounded-full"
-              />
-              <div>
-                <p className="text-sm font-medium text-muted-foreground">Serving Alberta</p>
-                <p className="text-2xl font-bold gradient-text">Since 2010</p>
-              </div>
             </div>
           </div>
         </div>

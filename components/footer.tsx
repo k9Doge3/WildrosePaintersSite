@@ -4,7 +4,7 @@ import Image from "next/image"
 
 export function Footer() {
   return (
-    <footer className="border-t bg-muted/50">
+    <footer className="border-t border-white/10 bg-slate-950/50 backdrop-blur-xl">
       <div className="container py-12 md:py-16">
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
           {/* Company Info */}
@@ -17,10 +17,11 @@ export function Footer() {
                 height={48}
                 className="rounded-full"
               />
-              <span className="text-lg font-bold">WildRose Painters</span>
+              <span className="text-lg font-bold gradient-text">WildRose Painters</span>
             </div>
             <p className="text-sm leading-relaxed text-muted-foreground mb-4">
-              Connecting you with Alberta&#39;s best painting contractors. Professional service across Edmonton, and beyond.
+              Connecting you with Alberta&#39;s best painting contractors. Professional service across Edmonton, and
+              beyond.
             </p>
             <Link
               href="https://kygroup.ca"
@@ -34,25 +35,25 @@ export function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h3 className="mb-4 font-semibold">Quick Links</h3>
+            <h3 className="mb-4 font-semibold gradient-text">Quick Links</h3>
             <ul className="space-y-2 text-sm">
               <li>
-                <Link href="#features" className="text-muted-foreground transition-colors hover:text-primary">
+                <Link href="#features" className="text-slate-400 transition-colors hover:text-primary">
                   Services
                 </Link>
               </li>
               <li>
-                <Link href="#testimonials" className="text-muted-foreground transition-colors hover:text-primary">
+                <Link href="#testimonials" className="text-slate-400 transition-colors hover:text-primary">
                   Testimonials
                 </Link>
               </li>
               <li>
-                <Link href="#pricing" className="text-muted-foreground transition-colors hover:text-primary">
+                <Link href="#pricing" className="text-slate-400 transition-colors hover:text-primary">
                   Pricing
                 </Link>
               </li>
               <li>
-                <Link href="#contact" className="text-muted-foreground transition-colors hover:text-primary">
+                <Link href="#contact" className="text-slate-400 transition-colors hover:text-primary">
                   Contact
                 </Link>
               </li>
@@ -61,39 +62,39 @@ export function Footer() {
 
           {/* Contact Info */}
           <div>
-            <h3 className="mb-4 font-semibold">Contact Us</h3>
+            <h3 className="mb-4 font-semibold gradient-text">Contact Us</h3>
             <ul className="space-y-3 text-sm">
               <li className="flex items-start gap-2">
-                <Phone className="mt-0.5 h-4 w-4 shrink-0 text-muted-foreground" />
-                <a href="tel:+15875016994" className="text-muted-foreground hover:text-primary transition-colors">
+                <Phone className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+                <a href="tel:+15875016994" className="text-slate-400 hover:text-primary transition-colors">
                   (587) 501-6994
                 </a>
               </li>
               <li className="flex items-start gap-2">
-                <Mail className="mt-0.5 h-4 w-4 shrink-0 text-muted-foreground" />
+                <Mail className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
                 <a
                   href="mailto:ky.group.solutions@gmail.com"
-                  className="text-muted-foreground hover:text-primary transition-colors"
+                  className="text-slate-400 hover:text-primary transition-colors"
                 >
                   ky.group.solutions@gmail.com
                 </a>
               </li>
               <li className="flex items-start gap-2">
-                <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-muted-foreground" />
-                <span className="text-muted-foreground">Edmonton & All of Alberta 🌹</span>
+                <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+                <span className="text-slate-400">Edmonton & All of Alberta 🌹</span>
               </li>
             </ul>
           </div>
 
           {/* Social Media */}
           <div>
-            <h3 className="mb-4 font-semibold">Follow Us</h3>
+            <h3 className="mb-4 font-semibold gradient-text">Follow Us</h3>
             <div className="flex gap-4">
               <Link
                 href="https://facebook.com/wildrosepainters"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex h-10 w-10 items-center justify-center rounded-lg border transition-colors hover:border-primary hover:bg-primary hover:text-primary-foreground"
+                className="flex h-10 w-10 items-center justify-center rounded-lg border border-white/10 bg-white/5 transition-all hover:border-primary hover:bg-primary/20 hover:shadow-[0_0_20px_rgba(34,197,94,0.3)]"
                 aria-label="Facebook"
               >
                 <Facebook className="h-5 w-5" />
@@ -102,7 +103,7 @@ export function Footer() {
                 href="https://instagram.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex h-10 w-10 items-center justify-center rounded-lg border transition-colors hover:border-primary hover:bg-primary hover:text-primary-foreground"
+                className="flex h-10 w-10 items-center justify-center rounded-lg border border-white/10 bg-white/5 transition-all hover:border-primary hover:bg-primary/20 hover:shadow-[0_0_20px_rgba(34,197,94,0.3)]"
                 aria-label="Instagram"
               >
                 <Instagram className="h-5 w-5" />
@@ -111,7 +112,7 @@ export function Footer() {
                 href="https://linkedin.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex h-10 w-10 items-center justify-center rounded-lg border transition-colors hover:border-primary hover:bg-primary hover:text-primary-foreground"
+                className="flex h-10 w-10 items-center justify-center rounded-lg border border-white/10 bg-white/5 transition-all hover:border-primary hover:bg-primary/20 hover:shadow-[0_0_20px_rgba(34,197,94,0.3)]"
                 aria-label="LinkedIn"
               >
                 <Linkedin className="h-5 w-5" />
@@ -120,7 +121,7 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 border-t pt-8 text-center text-sm text-muted-foreground">
+        <div className="mt-12 border-t border-white/10 pt-8 text-center text-sm text-slate-400">
           <p>&copy; {new Date().getFullYear()} WildRose Painters. A KY Group Company. All rights reserved.</p>
         </div>
       </div>
