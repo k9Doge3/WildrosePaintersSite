@@ -4,7 +4,7 @@ import Image from "next/image"
 
 export function Footer() {
   return (
-    <footer className="border-t border-white/10 bg-slate-950/50 backdrop-blur-xl">
+    <footer className="border-t border-border/50 bg-card/50 backdrop-blur-xl">
       <div className="container py-12 md:py-16">
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
           {/* Company Info */}
@@ -17,9 +17,9 @@ export function Footer() {
                 height={48}
                 className="rounded-full"
               />
-              <span className="text-lg font-bold gradient-text">WildRose Painters</span>
+              <span className="text-lg font-bold text-white">WildRose Painters</span>
             </div>
-            <p className="text-sm leading-relaxed text-muted-foreground mb-4">
+            <p className="text-sm leading-relaxed text-white/70 mb-4">
               Connecting you with Alberta&#39;s best painting contractors. Professional service across Edmonton, and
               beyond.
             </p>
@@ -35,25 +35,25 @@ export function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h3 className="mb-4 font-semibold gradient-text">Quick Links</h3>
+            <h3 className="mb-4 font-semibold text-white">Quick Links</h3>
             <ul className="space-y-2 text-sm">
               <li>
-                <Link href="#features" className="text-slate-400 transition-colors hover:text-primary">
+                <Link href="#features" className="text-white/70 transition-colors hover:text-white">
                   Services
                 </Link>
               </li>
               <li>
-                <Link href="#testimonials" className="text-slate-400 transition-colors hover:text-primary">
+                <Link href="#testimonials" className="text-white/70 transition-colors hover:text-white">
                   Testimonials
                 </Link>
               </li>
               <li>
-                <Link href="#pricing" className="text-slate-400 transition-colors hover:text-primary">
+                <Link href="#pricing" className="text-white/70 transition-colors hover:text-white">
                   Pricing
                 </Link>
               </li>
               <li>
-                <Link href="#contact" className="text-slate-400 transition-colors hover:text-primary">
+                <Link href="#contact" className="text-white/70 transition-colors hover:text-white">
                   Contact
                 </Link>
               </li>
@@ -62,11 +62,11 @@ export function Footer() {
 
           {/* Contact Info */}
           <div>
-            <h3 className="mb-4 font-semibold gradient-text">Contact Us</h3>
+            <h3 className="mb-4 font-semibold text-white">Contact Us</h3>
             <ul className="space-y-3 text-sm">
               <li className="flex items-start gap-2">
                 <Phone className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
-                <a href="tel:+15875016994" className="text-slate-400 hover:text-primary transition-colors">
+                <a href="tel:+15875016994" className="text-white/70 hover:text-white transition-colors">
                   (587) 501-6994
                 </a>
               </li>
@@ -74,21 +74,21 @@ export function Footer() {
                 <Mail className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
                 <a
                   href="mailto:ky.group.solutions@gmail.com"
-                  className="text-slate-400 hover:text-primary transition-colors"
+                  className="text-white/70 hover:text-white transition-colors"
                 >
                   ky.group.solutions@gmail.com
                 </a>
               </li>
               <li className="flex items-start gap-2">
                 <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
-                <span className="text-slate-400">Edmonton & All of Alberta 🌹</span>
+                <span className="text-white/70">Edmonton & All of Alberta 🌹</span>
               </li>
             </ul>
           </div>
 
           {/* Social Media */}
           <div>
-            <h3 className="mb-4 font-semibold gradient-text">Follow Us</h3>
+            <h3 className="mb-4 font-semibold text-white">Follow Us</h3>
             <div className="flex gap-4">
               <Link
                 href="https://facebook.com/wildrosepainters"
@@ -121,7 +121,7 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 border-t border-white/10 pt-8 text-center text-sm text-slate-400">
+        <div className="mt-12 border-t border-border/50 pt-8 text-center text-sm text-white/60">
           <p>&copy; {new Date().getFullYear()} WildRose Painters. A KY Group Company. All rights reserved.</p>
         </div>
       </div>
