@@ -1,0 +1,14 @@
+<svg width="400" height="250" viewBox="0 0 400 250" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Edmonton Cars Logo</title>
+  <desc id="desc">Dark automotive logo with a car silhouette and Edmonton-Cars wordmark.</desc>
+  <rect width="400" height="250" fill="#11151c" rx="24" />
+  <g fill="none" stroke="#3a404b" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" transform="translate(60 45)">
+    <path d="M20 70c18-40 52-60 120-60s102 20 120 60l10 5c10 5 15 12 15 22 0 8-4 12-12 12H12c-8 0-12-4-12-12 0-10 5-17 15-22z" />
+    <path d="M55 103h70" />
+    <path d="M185 103h70" />
+    <circle cx="70" cy="115" r="16" fill="#1b1f27" stroke="#3a404b" />
+    <circle cx="210" cy="115" r="16" fill="#1b1f27" stroke="#3a404b" />
+  </g>
+  <text x="200" y="190" text-anchor="middle" font-family="'Segoe UI', 'Inter', sans-serif" font-size="32" font-weight="700" fill="#3da0e0">Edmonton-Cars</text>
+  <text x="200" y="215" text-anchor="middle" font-family="'Segoe UI', 'Inter', sans-serif" font-size="16" fill="#8aa0b5">Your local Car Adviser / Companion</text>
+</svg>

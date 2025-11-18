@@ -1,0 +1,6 @@
+credentials-file: 'C:\Users\ky\.cloudflared\e75936f1-2a7e-4101-90a1-3023a051b07d.json'
+ingress:
+  - hostname: crm.wildrosepainters.ca
+    service: http://localhost:8080
+  - service: http_status:404
+tunnel: e75936f1-2a7e-4101-90a1-3023a051b07d

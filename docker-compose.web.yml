@@ -1,0 +1,16 @@
+services:
+  wildrose-site:
+    build:
+      context: .
+      args:
+        RESEND_API_KEY: ${RESEND_API_KEY:-placeholder}
+    container_name: wildrose-site
+    env_file:
+      - .env.docker
+    environment:
+      - NODE_ENV=production
+      - PORT=3000
+      - RESEND_API_KEY=${RESEND_API_KEY:-placeholder}
+    ports:
+      - "127.0.0.1:3300:3000"
+    restart: unless-stopped

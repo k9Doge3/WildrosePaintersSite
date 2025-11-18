@@ -1,0 +1,36 @@
+version: '3.8'
+
+services:
+  espocrm:
+    image: espocrm/espocrm:latest
+    container_name: espocrm
+    environment:
+      ESPOCRM_DATABASE_HOST: espocrm-db
+      ESPOCRM_DATABASE_USER: espocrm
+      ESPOCRM_DATABASE_PASSWORD: SecurePassword123!
+      ESPOCRM_ADMIN_USERNAME: admin
+      ESPOCRM_ADMIN_PASSWORD: AdminPassword123!
+      ESPOCRM_SITE_URL: https://crm.wildrosepainters.ca
+    ports:
+      - "8080:80"
+    volumes:
+      - espocrm-data:/var/www/html
+    depends_on:
+      - espocrm-db
+    restart: unless-stopped
+
+  espocrm-db:
+    image: mysql:8.0
+    container_name: espocrm-db
+    environment:
+      MYSQL_ROOT_PASSWORD: RootPassword123!
+      MYSQL_DATABASE: espocrm
+      MYSQL_USER: espocrm
+      MYSQL_PASSWORD: SecurePassword123!
+    volumes:
+      - espocrm-db-data:/var/lib/mysql
+    restart: unless-stopped
+
+volumes:
+  espocrm-data:
+  espocrm-db-data:

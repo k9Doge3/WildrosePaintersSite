@@ -1,0 +1,170 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+:root {
+  /* Light, minimalist palette inspired by artisan paint studios */
+  --background: oklch(0.97 0.02 80);
+  --foreground: oklch(0.3 0.03 50);
+  --card: oklch(0.99 0.01 90);
+  --card-foreground: var(--foreground);
+  --popover: oklch(0.99 0.01 95);
+  --popover-foreground: var(--foreground);
+
+  --primary: oklch(0.74 0.15 40);
+  --primary-foreground: oklch(0.99 0.01 95);
+  --secondary: oklch(0.9 0.04 160);
+  --secondary-foreground: var(--foreground);
+  --accent: oklch(0.93 0.05 30);
+  --accent-foreground: var(--foreground);
+
+  --muted: oklch(0.92 0.02 95);
+  --muted-foreground: oklch(0.5 0.03 55);
+  --destructive: oklch(0.58 0.17 28);
+  --destructive-foreground: oklch(0.99 0.01 95);
+  --border: oklch(0.89 0.01 95);
+  --input: var(--border);
+  --ring: var(--primary);
+
+  --chart-1: oklch(0.74 0.15 40);
+  --chart-2: oklch(0.7 0.08 155);
+  --chart-3: oklch(0.76 0.11 20);
+  --chart-4: oklch(0.72 0.09 100);
+  --chart-5: oklch(0.65 0.12 320);
+
+  --radius: 0.75rem;
+
+  --sidebar: oklch(0.985 0.01 95);
+  --sidebar-foreground: var(--foreground);
+  --sidebar-primary: var(--primary);
+  --sidebar-primary-foreground: var(--primary-foreground);
+  --sidebar-accent: oklch(0.95 0.02 80);
+  --sidebar-accent-foreground: var(--foreground);
+  --sidebar-border: var(--border);
+  --sidebar-ring: var(--ring);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+* {
+  border-color: var(--border);
+}
+
+html {
+  font-size: 125%;
+}
+
+body {
+  color: var(--foreground);
+  background: radial-gradient(circle at top, oklch(0.99 0.02 95) 0%, transparent 45%), var(--background);
+  font-feature-settings: "rlig" 1, "calt" 1;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Gradient text effect for headings */
+.gradient-text {
+  background: linear-gradient(135deg, oklch(0.74 0.15 40) 0%, oklch(0.7 0.09 120) 55%, oklch(0.65 0.12 320) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Glassmorphism card effect */
+.glass-card {
+  background: rgba(255, 255, 255, 0.8);
+  -webkit-backdrop-filter: blur(18px);
+  backdrop-filter: blur(18px);
+  border: 1px solid rgba(15, 23, 42, 0.06);
+  box-shadow: 0 20px 45px rgba(15, 23, 42, 0.08);
+}
+
+/* Glow effect for interactive elements */
+.glow-primary {
+  box-shadow: 0 10px 30px rgba(217, 119, 6, 0.25);
+}
+
+.glow-accent {
+  box-shadow: 0 8px 24px rgba(59, 130, 246, 0.18);
+}
+
+/* Animated diagonal lines background */
+@keyframes diagonal-lines {
+  0% {
+    transform: translateY(0) translateX(0);
+  }
+  100% {
+    transform: translateY(-50px) translateX(-50px);
+  }
+}
+
+.diagonal-lines {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.diagonal-lines::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background-image: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 60px,
+    rgba(15, 23, 42, 0.02) 60px,
+    rgba(15, 23, 42, 0.02) 61px
+  );
+  animation: diagonal-lines 20s linear infinite;
+}
