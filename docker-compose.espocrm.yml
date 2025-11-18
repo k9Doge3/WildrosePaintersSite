@@ -12,7 +12,7 @@ services:
       ESPOCRM_ADMIN_PASSWORD: AdminPassword123!
       ESPOCRM_SITE_URL: https://crm.wildrosepainters.ca
     ports:
-      - "8080:80"
+      - "8086:80"
     volumes:
       - espocrm-data:/var/www/html
     depends_on:
